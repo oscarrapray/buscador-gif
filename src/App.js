@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState } from 'react';
+import './index.css';
+import { AddCategory } from './components/AddCategory';
+import GifGrid from './components/GifGrid';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const[categories,setCategories] = useState('goku')
+    return (
+        <>
+        <div className="section1">
+              <h2>Buscador Gifs</h2>
+              <AddCategory cat ={setCategories}/>
+          </div>
+          <div className="section2">
+              <p className="txt_title">{categories}</p>
+              <GifGrid category ={categories} />
+          </div>
+        </>
+    )
+  
 }
 
 export default App;
